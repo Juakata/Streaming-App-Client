@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import StreamShow from './streams/StreamShow';
 import StreamCreate from './streams/StreamCreate';
+import StreamEdit from './streams/StreamEdit';
 
 const App = () => (
   <div>
@@ -9,6 +10,7 @@ const App = () => (
       <Route exact path="/" />
       <Route exact path="/streams/show" component={StreamShow} />
       <Route exact path="/streams/create" component={StreamCreate} />
+      <Route exact path="/streams/edit" component={StreamEdit} />
     </Switch>
   </div>
 );
