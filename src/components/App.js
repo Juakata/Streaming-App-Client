@@ -4,11 +4,12 @@ import StreamShow from './streams/StreamShow';
 import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
+import StreamList from './streams/StreamList';
 
 const App = () => (
   <div>
     <Switch>
-      <Route exact path="/" />
+      <Route exact path="/" component={StreamList} />
       <Route exact path="/streams/show" component={StreamShow} />
       <Route exact path="/streams/create" component={StreamCreate} />
       <Route exact path="/streams/edit" component={StreamEdit} />
