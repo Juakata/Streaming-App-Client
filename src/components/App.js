@@ -5,9 +5,11 @@ import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamList from './streams/StreamList';
+import Header from './Header';
 
 const App = () => (
-  <div>
+  <div className="ui container">
+    <Header />
     <Switch>
       <Route exact path="/" component={StreamList} />
       <Route exact path="/streams/show" component={StreamShow} />
