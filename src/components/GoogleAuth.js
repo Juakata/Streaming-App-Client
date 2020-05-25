@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { signIn, signOut } from '../actions';
 
 class GoogleAuth extends React.Component {
   constructor(props) {
@@ -19,8 +22,13 @@ class GoogleAuth extends React.Component {
     });
   }
 
-  onAuthChange = () => {
-    this.setState({ is: this.auth.isSignedIn.get() });
+  onAuthChange = isSignedIn => {
+    const { signIn, signOut } = this.props;
+    if (isSignedIn) {
+      signIn();
+    } else {
+      signOut();
+    }
   }
 
   renderAuthButton() {
@@ -55,4 +63,9 @@ class GoogleAuth extends React.Component {
   }
 }
 
-export default GoogleAuth;
+GoogleAuth.propTypes = {
+  signIn: PropTypes.func.isRequired,
+  signOut: PropTypes.func.isRequired,
+};
+
+export default connect(null, { signIn, signOut })(GoogleAuth);
