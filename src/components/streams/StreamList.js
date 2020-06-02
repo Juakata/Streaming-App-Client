@@ -13,7 +13,11 @@ class StreamList extends React.Component {
   renderCreateBtn = () => {
     const { isSignedIn } = this.props;
     if (isSignedIn) {
-      return <Link className="ui button primary" to="/streams/create">Create Stream</Link>;
+      return (
+        <Link className="ui button primary" to="/streams/create">
+          Create Stream
+        </Link>
+      );
     }
     return null;
   }
@@ -26,9 +30,9 @@ class StreamList extends React.Component {
           <Link to={`/streams/edit/${id}`} className="ui button primary">
             Edit
           </Link>
-          <button type="button" className="ui button negative">
+          <Link to={`streams/delete/${id}`} className="ui button negative">
             Delete
-          </button>
+          </Link>
         </div>
       );
     }
