@@ -47,7 +47,9 @@ class StreamShow extends React.Component {
     }
     return (
       <div>
-        <video style={{ width: '100%' }} ref={this.videoRef} controls />
+        <video style={{ width: '100%' }} ref={this.videoRef} controls>
+          <track kind="captions" label="english_captions" />
+        </video>
         <h1>{stream.title}</h1>
         <h5>{stream.description}</h5>
       </div>
