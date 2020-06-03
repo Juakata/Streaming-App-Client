@@ -1,5 +1,5 @@
 import React from 'react';
-import flv from 'flv.js';
+import HJPlayer from 'hjplayer';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { fetchStream } from '../../actions';
@@ -24,6 +24,7 @@ class StreamShow extends React.Component {
   }
 
   componentWillUnmount() {
+    this.player.off();
     this.player.destroy();
   }
 
@@ -31,7 +32,7 @@ class StreamShow extends React.Component {
     if (this.player || !stream) {
       return;
     }
-    this.player = flv.createPlayer({
+    this.player = new HJPlayer({
       type: 'flv',
       url: `http://localhost:8000/live/${id}.flv`,
     });
